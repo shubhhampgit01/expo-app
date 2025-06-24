@@ -4,7 +4,6 @@ import sizer from "@/utils/sizer";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  // Your original card styles - preserved exactly
   profileCard: {
     height: sizer.moderateScale(160),
     marginBottom: sizer.moderateScale(8),
@@ -39,23 +38,20 @@ export const styles = StyleSheet.create({
     fontSize: Typography.sizes.md,
     color: Colors.mainWhite,
     marginRight: sizer.moderateScale(-2),
-    maxWidth:"80%"
+    maxWidth: "80%",
   },
   profileDistance: {
     fontFamily: Typography.fonts.regular,
     fontSize: Typography.sizes.sm,
     color: Colors.secondWhite,
   },
-  
-  // Card highlight border for long press
+
   cardBorderHighlight: {
     position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    // borderWidth: 3,
-    // borderColor: Colors.accentBlue,
     borderRadius: sizer.moderateScale(16),
     pointerEvents: "none",
   },

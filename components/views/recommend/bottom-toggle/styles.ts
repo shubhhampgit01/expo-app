@@ -1,5 +1,3 @@
-
-
 import { Colors } from "@/constants/Colors";
 import { Typography } from "@/constants/typography";
 import sizer from "@/utils/sizer";
@@ -17,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   toggleContainer: {
     flexDirection: "row",
-    backgroundColor: "rgba(23, 25, 29, 0.2)", // Slightly more opaque to reduce blur effect
+    backgroundColor: "rgba(23, 25, 29, 0.2)",
     borderRadius: sizer.moderateScale(25),
     padding: sizer.moderateScale(4),
     overflow: "hidden",
@@ -40,21 +38,21 @@ export const styles = StyleSheet.create({
     zIndex: 1,
   },
   toggleButtonActive: {
-    backgroundColor: "rgba(255, 255, 255, 0.9)", // Slightly off-white to reduce contrast
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
     shadowColor: Colors.mainBlack,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 4, // For Android shadow
+    elevation: 4,
   },
   toggleText: {
-    fontFamily: Typography.fonts.regular, // Changed to regular to reduce glow
+    fontFamily: Typography.fonts.regular,
     fontSize: Typography.sizes.lg,
     color: Colors.mainWhite,
   },
   toggleTextActive: {
     color: Colors.mainBlack,
-    textShadowColor: "rgba(0, 0, 0, 0.1)", // Subtle shadow to define text
+    textShadowColor: "rgba(0, 0, 0, 0.1)",
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
   },
