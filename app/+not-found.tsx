@@ -1,12 +1,12 @@
-import { Colors } from '@/constants/Colors';
-import { Typography } from '@/constants/typography';
-import { Link, Stack } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { Colors } from "@/constants/Colors";
+import { Typography } from "@/constants/typography";
+import { Link, Stack } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function NotFoundScreen() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Test Screen' }} />
+      <Stack.Screen options={{ title: "Test Screen" }} />
       <View style={styles.container}>
         <Text style={styles.title}>Test Screen Working!</Text>
         <Text style={styles.subtitle}>Poppins Font Test</Text>
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.mainBlack,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   title: {

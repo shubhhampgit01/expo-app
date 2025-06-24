@@ -79,20 +79,15 @@ function RecommendScreen() {
     searchInputRef.current?.focus();
   };
 
-  const handleProfilePress = (profile: Profile) => {
-    console.log("Profile pressed:", profile.name);
-  };
+  const handleProfilePress = (profile: Profile) => {};
 
   const handleBackPress = () => {
-    console.log("Back pressed");
     if (router.canGoBack()) {
       router.back();
-    } 
+    }
   };
 
-  const handleOptionsPress = () => {
-    console.log("Options pressed");
-  };
+  const handleOptionsPress = () => {};
 
   const handleScroll = (event: any) => {
     const currentOffset = event.nativeEvent.contentOffset.y;
@@ -571,7 +566,6 @@ const styles = StyleSheet.create({
     fontFamily: Typography.fonts.semiBold,
     fontSize: Typography.sizes.md,
     color: Colors.mainWhite,
-    // marginRight: sizer.moderateScale(4),
     maxWidth: "80%",
   },
   activeCardDistance: {
@@ -600,7 +594,6 @@ const styles = StyleSheet.create({
     color: Colors.mainWhite,
     paddingHorizontal: sizer.moderateScale(16),
     paddingVertical: sizer.moderateScale(8),
-    // backgroundColor: "rgba(0,0,0,0.8)",
     borderRadius: sizer.moderateScale(20),
     overflow: "hidden",
     textAlign: "center",
@@ -639,7 +632,6 @@ const styles = StyleSheet.create({
     width: sizer.moderateScale(50),
     height: sizer.moderateScale(50),
     borderRadius: sizer.moderateScale(100),
-    // backgroundColor: "green",
     borderWidth: 2,
     borderColor: Colors.secondWhite,
     opacity: 1,

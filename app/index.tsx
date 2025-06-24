@@ -7,7 +7,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.subtitle}>Welcome to your app!</Text>
-
       <Link href="/recommend" style={styles.link}>
         <Text style={styles.linkText}>Go to Recommend Screen</Text>
       </Link>

@@ -62,21 +62,21 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
       icon: "chatbubble",
       color: Colors.whiteHint,
       label: "Message",
-      action: () => console.log("Message", profile.name),
+      action: () => {},
     },
     {
       id: "follow",
       icon: "person-add",
       color: Colors.whiteHint,
       label: "Follow",
-      action: () => console.log("Follow", profile.name),
+      action: () => {},
     },
     {
       id: "share",
       icon: "share",
       color: Colors.whiteHint,
       label: "Share",
-      action: () => console.log("Share", profile.name),
+      action: () => {},
     },
   ];
 
@@ -144,10 +144,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
   // Activate long press
   const activateLongPress = () => {
     if (touchState.current.hasActivatedLongPress) return;
-
-    console.log("ACTIVATING LONG PRESS");
     touchState.current.hasActivatedLongPress = true;
-
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
 
     setIsLongPressing(true);
@@ -170,8 +167,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
 
   // Deactivate long press
   const deactivateLongPress = () => {
-    console.log(" DEACTIVATING LONG PRESS");
-
     setActiveButtonIndex(null);
     onActiveButtonChange?.(null, null);
 
@@ -211,8 +206,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         },
       ]}
       onTouchStart={(evt) => {
-        console.log(" TOUCH START");
-
         touchState.current = {
           isActive: true,
           startX: evt.nativeEvent.pageX,
@@ -225,13 +218,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         clearTimer();
 
         longPressTimer.current = setTimeout(() => {
-          console.log("TIMER EXPIRED - Checking conditions");
-          console.log("Has moved:", touchState.current.hasMoved);
-          console.log(
-            "Has activated:",
-            touchState.current.hasActivatedLongPress
-          );
-
           if (
             !touchState.current.hasMoved &&
             !touchState.current.hasActivatedLongPress
@@ -247,8 +233,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         const currentY = evt.nativeEvent.pageY;
 
         if (touchState.current.hasActivatedLongPress && isLongPressing) {
-          console.log(" LONG PRESS ACTIVE - Button selection mode");
-
           const relativePos = getRelativeFingerPosition(currentX, currentY);
           const buttonIndex = getButtonUnderFinger(
             relativePos.x,
@@ -275,19 +259,14 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         );
 
         if (distance > 10) {
-          console.log("📱 SCROLLING DETECTED - Canceling long press");
           touchState.current.hasMoved = true;
           clearTimer();
         }
       }}
       onTouchEnd={(evt) => {
-        console.log("TOUCH END");
-
         clearTimer();
 
         if (touchState.current.hasActivatedLongPress && isLongPressing) {
-          console.log(" EXECUTING BUTTON ACTION");
-
           if (activeButtonIndex !== null) {
             floatingButtons[activeButtonIndex].action();
             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
@@ -300,14 +279,12 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         const touchDuration = Date.now() - touchState.current.startTime;
 
         if (!touchState.current.hasMoved && touchDuration < 500) {
-          console.log(" REGULAR TAP");
           onPress?.(profile);
         }
 
         touchState.current.isActive = false;
       }}
       onTouchCancel={() => {
-        console.log(" TOUCH CANCELLED");
         clearTimer();
 
         if (touchState.current.hasActivatedLongPress) {
